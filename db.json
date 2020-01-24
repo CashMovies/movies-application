@@ -3,22 +3,20 @@
     {
       "title": "Casablanca",
       "rating": "4",
-      "id": 1
+      "id": 1,
+      "link": "https://picsum.photos/80/80"
     },
     {
       "title": "Star Wars: A New Hope",
       "rating": "5",
-      "id": 2
+      "id": 2,
+      "link": "https://picsum.photos/80/80"
     },
     {
       "title": "Bad Boys 4 Life",
       "rating": "5",
-      "id": 3
-    },
-    {
-      "title": "APPLE",
-      "rating": "1",
-      "id": 4
+      "id": 3,
+      "link": "https://picsum.photos/80/80"
     }
   ]
 }

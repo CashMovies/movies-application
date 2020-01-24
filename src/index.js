@@ -12,14 +12,14 @@ sayHello('World');
 //**************** Create table/loadMovies Function Start***************//
 const {getMovies, addMovie, deleteMovie} = require('./api.js');
 const loadMovies = () => {
-  $('#table').html(' <div class="row"><div class="column">id</div><div class="column">Heading</div><div class="column">Rating</div><div class="column">Delete</div></div>');
+  $('#table').html(' <div class="row header"><div class="column">img</div><div class="column">Heading</div><div class="column">Rating</div><div class="column">Delete</div></div>');
   // const {getMovies} = require('./api.js');
   getMovies().then((movies) => {
     console.log('Here are all the movies:');
-    movies.forEach(({title, rating, id}) => {
+    movies.forEach(({title, rating, id, link}) => {
       console.log(`id#${id} - ${title} - rating: ${rating}`);
       // $('.container').html('<p>' + `#${id} - ${title} - rating: ${rating}` + "</p>");
-      $('#table').append('<div class="row"><div class="column">' + `${id}` + '</div><div class="column">' + ' ' + `${title}` + '</div><div class="column">' + `${rating}` + '</div><div class="column"> <button class="buttons" value=' +  `${id}` + '> X </button></div></div>')
+      $('#table').append('<div class="row"><div class="column"><img src=' + `${link}` + '></div><div class="column">' + `${title}` + '</div><div class="column">' + `${rating}` + '</div><div class="column"> <button class="buttons" value=' +  `${id}` + '> X </button></div></div>')
     });
   }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -34,7 +34,7 @@ loadMovies();
 $('#updateButton').click(function(){
   loader();
 
-  const userInput = {title: $('#updateMovie').val(), rating: $('#newRating').val()};
+  const userInput = {title: $('#updateMovie').val(), rating: $('#newRating').val(), img: 'https://picsum.photos/100/100'};
 
   addMovie(userInput);
   loadMovies();
